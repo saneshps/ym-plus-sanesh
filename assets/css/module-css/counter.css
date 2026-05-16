@@ -228,7 +228,7 @@
     font-size: 48px;
     font-weight: 600;
     line-height: 48px !important;
-    font-family: var(--erepair-font-2) !important;
+    font-family: sans-serif !important;
     color: var(--erepair-white);
     letter-spacing: -1.44px;
 }

@@ -106,6 +106,14 @@
 /* Medium screen  */
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
 
+    .about-four {
+        padding: 40px 0 80px 0;
+    }
+
+    .cta-one__text {
+        width: 100%;
+    }
+
     .service-details h4 {
         font-size: 20px;
     }
@@ -172,8 +180,13 @@
     }
 
     .video-one__right {
-        max-width: 600px;
-        margin: 60px auto 0;
+        max-width: 100%;
+        margin: 0px auto 0;
+    }
+
+    .video-one {
+        padding: 60px 0 20px;
+        margin: 0 0 50px 0;
     }
 
     .counter-one__single::before {
@@ -196,10 +209,7 @@
         margin-left: 0;
     }
 
-    .footer-widget__services {
-        margin-left: 0;
-        margin-top: 32px;
-    }
+
 
     .footer-widget__contact {
         margin-left: 0;
@@ -438,6 +448,15 @@
 /* Tablet Layout: 768px. */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 
+    .counter-two__single {
+        margin-bottom: 40px;
+    }
+
+    .video-one {
+        padding: 0px 0 20px;
+        margin: 0 0 40px 0;
+    }
+
     #bookExpertModal .contact-one__right .contact-one__input-box .select-box {
         width: 100%;
     }
@@ -539,9 +558,10 @@
     }
 
     .video-one__right {
-        max-width: 600px;
-        margin: 60px auto 0;
+        max-width: 100%;
+        margin: 10px auto 0;
     }
+
 
     .counter-one__single::before {
         display: none;
@@ -561,7 +581,7 @@
 
     .footer-widget__services {
         margin-left: 0;
-        margin-top: 32px;
+        margin-top: 0;
     }
 
     .footer-widget__contact {
@@ -810,6 +830,14 @@
 /* Mobile Layout: 320px. */
 @media only screen and (max-width: 767px) {
 
+    .service-details {
+        padding: 30px 0 40px;
+    }
+
+    .cta-one__text {
+        width: 100%;
+    }
+
     #bookExpertModal .contact-one__right .contact-one__input-box .selectmenu,
     #bookExpertModal .contact-one__right .contact-one__input-box .nice-select {
         padding: 10px 15px;
@@ -834,10 +862,14 @@
 
     #bookExpertModal .contact-one__btn.next-btn {
         text-transform: unset;
+        padding: 4px 8px;
+        font-size: 14px;
     }
 
     #bookExpertModal .contact-one__btn.interested-btn {
         text-transform: unset;
+        padding: 4px 8px;
+        font-size: 14px;
     }
 
     #bookExpertModal .modal-title {
@@ -1036,11 +1068,23 @@
     .blog-one__top {
         flex-direction: column;
         align-items: baseline;
+        margin-top: 10px !important;
     }
 
     .blog-one__btn-box {
-        margin-top: 30px;
+        margin-top: 0px;
     }
+
+    .counter-two__count-box span {
+        font-size: 35px;
+    }
+
+    .video-one {
+        padding: 0px 0 20px;
+        margin: 0 0 40px 0;
+    }
+
+
 
     .blog-one__content {
         padding: 36px 20px 43px;
@@ -1085,18 +1129,23 @@
 
     .site-footer__bottom-text {
         margin-bottom: 10px;
+        font-size: 14px;
+        line-height: 25px;
     }
 
     .site-footer__bottom-menu {
-        flex-direction: column;
+        flex-direction: row;
+        gap: 15px;
     }
 
     .site-footer__bottom-menu li+li {
         margin-left: 0;
-        margin-top: 5px;
+        margin-top: 0px;
     }
 
-
+    .site-footer__bottom-menu li a {
+        font-size: 14px;
+    }
 
     .about-two__points-list {
         flex-direction: column;
@@ -1571,8 +1620,8 @@
     }
 
     .page-header__inner h3 {
-        font-size: 25px;
-        line-height: 35px;
+        font-size: 22px;
+        line-height: 32px;
         width: 90%;
     }
 
@@ -1801,8 +1850,8 @@
 
 @media only screen and (min-width: 1200px) and (max-width: 1319px) {
 
-           #bookExpertModal #form-step-3 p { 
-        width: 60%; 
+    #bookExpertModal #form-step-3 p {
+        width: 60%;
     }
 
 
@@ -1876,8 +1925,29 @@
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
 
-       #bookExpertModal #form-step-3 p { 
-        width: 60%; 
+    .service-details__services-list li a {
+        padding: 6px 15px 6px;
+        font-size: 14px;
+    }
+
+    .project-details__get-started {
+        padding: 10px 20px 20px;
+    }
+
+    .project-details__get-started-btn-box {
+        margin-top: 10px;
+    }
+
+    .service-details__services-box {
+        padding: 25px 20px 30px;
+    }
+
+    .service-details {
+        padding: 50px 0 40px;
+    }
+
+    #bookExpertModal #form-step-3 p {
+        width: 60%;
     }
 
 
@@ -1988,8 +2058,16 @@
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 
-       #bookExpertModal #form-step-3 p { 
-        width: 80%; 
+    .project-details__get-started-btn-box {
+        margin-top: 10px;
+    }
+
+    .service-details {
+        padding: 50px 0 90px;
+    }
+
+    #bookExpertModal #form-step-3 p {
+        width: 80%;
     }
 
 
@@ -2025,8 +2103,9 @@
     }
 
     .page-header__inner h3 {
-        font-size: 50px;
+        font-size: 36px;
         width: 100%;
+        line-height: 50px;
     }
 
     .main-slider__title {
@@ -2113,8 +2192,8 @@
 
 @media only screen and (max-width: 767px) {
 
-       #bookExpertModal #form-step-3 p { 
-        width: 100%; 
+    #bookExpertModal #form-step-3 p {
+        width: 100%;
     }
 
 
@@ -2267,8 +2346,8 @@
 
 @media only screen and (max-width: 576px) {
 
-    #bookExpertModal #form-step-3 p { 
-        width: 100%; 
+    #bookExpertModal #form-step-3 p {
+        width: 100%;
     }
 
 
@@ -2430,6 +2509,19 @@
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
 
+    .footer-widget__about {
+        margin-bottom: 30px;
+    }
+
+    .footer-widget__services {
+        margin-left: 0;
+        margin-top: 0;
+    }
+
+    .faq-one__right .faq-one-accrodion .accrodion-title {
+        padding: 12px 20px 12px;
+    }
+
     .main-menu-two__call-and-btn-box {
         padding: 10px 0;
     }
@@ -2491,19 +2583,29 @@
         gap: 50px;
     }
 
-
-
-
 }
 
 
 
 
-
-
-
-
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    .sidebar__post-image {
+        max-width: 200px;
+    }
+
+    .footer-widget__about {
+        margin-bottom: 40px;
+    }
+
+    .service-details__services-list li a {
+        padding: 6px 15px 6px;
+        font-size: 14px;
+    }
+
+    .project-details__get-started {
+        padding: 10px 20px 20px;
+    }
 
     .main-menu-two__call-and-btn-box {
         padding: 10px 0;
@@ -2591,6 +2693,55 @@
 
 @media (max-width: 767px) {
 
+    .contact-three { 
+    padding: 0 0 50px; 
+}
+
+    .thm-btn {
+        padding: 5px 16px 5px;
+        font-size: 13px;
+        margin-top: 10px;
+    }
+
+    .contact-three__input-box input[type="text"],
+    .contact-three__input-box input[type="email"],
+    .contact-three__input-box input[type="number"] {
+        height: 44px;
+        padding-left: 18px;
+        padding-right: 18px;
+        font-size: 14px;
+    }
+
+    .contact-three__input-box {
+        margin-bottom: 12px;
+    }
+
+    .contact-three__right {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    .blog-details__content h2,
+    .blog-details__content h3,
+    .blog-details__content h4,
+    .blog-details__content h5 {
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    .service-details__services-list li a {
+        padding: 6px 15px 6px;
+        font-size: 14px;
+    }
+
+    .project-details__get-started-btn-box {
+        margin-top: 10px;
+    }
+
+    .project-details__get-started {
+        padding: 10px 20px 20px;
+    }
+
     .main-menu {
         padding: 0;
     }
@@ -2600,7 +2751,11 @@
     }
 
     .blog-page {
-        padding: 30px 0 90px;
+        padding: 30px 0 30px;
+    }
+
+    .blog-page {
+        padding: 60px 0 40px;
     }
 
     .about-four {
