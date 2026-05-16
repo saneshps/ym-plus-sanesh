@@ -98,7 +98,7 @@
 
 .main-slider__img img {
     width: auto !important;
-    filter: grayscale(1);
+    /* filter: grayscale(1); */
 }
 
 .active .main-slider__img {
