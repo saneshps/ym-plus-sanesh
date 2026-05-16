@@ -257,20 +257,26 @@
     }
 
     .app-industries-carousel {
-        gap: 12px;
-        margin: 0 50px;
+        gap: 0;
+        margin: 0;
     }
 
     .app-industries-carousel-item {
         height: 320px;
+        flex: 0 0 100% !important;
+        opacity: 1 !important;
+        border-radius: 0;
     }
 
     .app-industries-carousel-item.active {
-        flex: 25;
+        flex: 0 0 100% !important;
+        box-shadow: none;
+        transform: none;
     }
 
     .app-industries-carousel-item:not(.active) {
-        flex: 0.8;
+        flex: 0 0 100% !important;
+        opacity: 0.6; /* Slight opacity for inactive ones if they peek, but usually they won't */
     }
 
     .app-industries-nav-button {
@@ -280,11 +286,11 @@
     }
 
     .app-industries-nav-prev {
-        left: -10px;
+        left: 10px;
     }
 
     .app-industries-nav-next {
-        right: -10px;
+        right: 10px;
     }
 
     .carousel-item-content {
@@ -324,20 +330,21 @@
     }
 
     .app-industries-carousel {
-        gap: 10px;
-        margin: 0 40px;
+        gap: 0;
+        margin: 0;
     }
 
     .app-industries-carousel-item {
-        height: 200px;
+        height: 250px;
+        flex: 0 0 100% !important;
     }
 
     .app-industries-carousel-item.active {
-        flex: 12;
+        flex: 0 0 100% !important;
     }
 
     .app-industries-carousel-item:not(.active) {
-        flex: 0.6;
+        flex: 0 0 100% !important;
     }
 
     .app-industries-nav-button {
@@ -347,11 +354,11 @@
     }
 
     .app-industries-nav-prev {
-        left: -46px;
+        left: 10px;
     }
 
     .app-industries-nav-next {
-        right: -46px;
+        right: 10px;
     }
 
     .carousel-item-content {
@@ -376,22 +383,24 @@
 /* Extra Small Mobile Devices */
 @media (max-width: 480px) {
     .app-industries-carousel {
-        margin: 0 35px;
+        margin: 0;
+        gap: 0;
     }
 
     .app-industries-carousel-item {
-        height: 180px;
+        height: 220px;
+        flex: 0 0 100% !important;
     }
 
     .app-industries-nav-prev {
-        left: -10px;
+        left: 5px;
     }
 
     .app-industries-nav-next {
-        right: -10px;
+        right: 5px;
     }
 
     .carousel-item-title {
-        font-size: 12px;
+        font-size: 15px;
     }
 }
