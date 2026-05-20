@@ -3,6 +3,26 @@
         max-width: 1580px;
     }
 
+
+
+
+}
+
+@media only screen and (min-width: 1320px) and (max-width: 1550px) 
+{
+    .services-one__single { 
+        padding-right: 20px; 
+    }
+
+    .services-one__service-list li:nth-child(2) .services-one__single {
+        padding-left: 20px;
+    }
+    .services-one__service-list li:nth-child(3) .services-one__single {
+        padding-left: 20px;
+    }
+    .services-one__service-list li:last-child .services-one__single {
+        padding-left: 20px;
+    }
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1319px) {
@@ -73,9 +93,6 @@
     .skill-one__left {
         margin-right: 0;
     }
-
-
-
 
 
 
