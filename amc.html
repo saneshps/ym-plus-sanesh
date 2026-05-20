@@ -425,6 +425,7 @@
 
 
     <!-- template js -->
+    <script src="assets/js/form-toast.js"></script>
     <script src="assets/js/components.js"></script>
     <script src="assets/js/script.js"></script>
 
@@ -699,7 +700,7 @@
                                             document.getElementById('form-step-1').style.display = 'none';
                                             document.getElementById('form-step-2').style.display = 'block';
                                         } else {
-                                            alert('Please fill out all required fields in this step.');
+                                            showFormToast('Please fill out all required fields in this step.', { type: 'error' });
                                         }
                                     });
 
@@ -735,7 +736,7 @@
                                         let machine = document.getElementById('expert_machine');
                                         if (machine && !machine.value) {
                                             machine.style.border = '1px solid red';
-                                            alert('Please fill out the Machine Type.');
+                                            showFormToast('Please fill out the Machine Type.', { type: 'error' });
                                             return;
                                         }
 
