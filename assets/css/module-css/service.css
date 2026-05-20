@@ -661,7 +661,7 @@
 .service-details {
     position: relative;
     display: block;
-    padding: 120px 0 90px;
+    padding: 70px 0 90px;
     z-index: 1;
 }
 
@@ -879,7 +879,8 @@
     background-color: var(--erepair-white);
     border: 1px solid var(--erepair-bdr-color);
     border-radius: 20px;
-    padding: 13px 20px 14px;
+    padding: 11px 20px 11px;
+    font-size: 15px;
     font-weight: 700;
     font-family: var(--erepair-font-2);
     text-transform: uppercase;

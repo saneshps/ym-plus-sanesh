@@ -38,11 +38,40 @@
     .blog-details { 
         padding: 50px 0 120px; 
     }
+    .main-slider__img img {
+        width: 80% !important;
+    }
+    .services-home-card__text
+    {
+        font-size: 15px;
+    }
+
+    .services-home-card__title {
+        font-size: 20px; 
+        margin-bottom: 10px;
+        margin-top: 8px; 
+    }
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1319px) {
 
+    .services-one__single { 
+        padding-right: 20px; 
+    }
 
+    .services-one__service-list li:nth-child(2) .services-one__single {
+        padding-left: 20px;
+    }
+    .services-one__service-list li:nth-child(3) .services-one__single {
+        padding-left: 20px;
+    }
+    .services-one__service-list li:last-child .services-one__single {
+        padding-left: 20px;
+    }
+
+    .services-one__title {
+        font-size: 17px; 
+    }
 
     .process-one .end-to-end {
         padding: 70px 100px 10px 100px;
@@ -137,6 +166,30 @@
 
 /* Medium screen  */
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+    .section-title-three__title { 
+        font-size: 38px;
+        line-height: 48px; 
+    }
+
+    .services-one__single { 
+        padding-right: 20px; 
+    }
+
+    .services-one__service-list li:nth-child(2) .services-one__single {
+        padding-left: 20px;
+    }
+    .services-one__service-list li:nth-child(3) .services-one__single {
+        padding-left: 20px;
+    }
+    .services-one__service-list li:last-child .services-one__single {
+        padding-left: 20px;
+    }
+
+    .services-one__title {
+        font-size: 17px; 
+        line-height: 26px;
+    }
 
     .about-four {
         padding: 40px 0 80px 0;
@@ -479,6 +532,11 @@
 
 /* Tablet Layout: 768px. */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    .section-title-three__title { 
+        font-size: 36px;
+        line-height: 45px; 
+    }
 
     .counter-two__single {
         margin-bottom: 40px;
@@ -1638,8 +1696,16 @@
     }
 
     .service-details__title-1 {
-        font-size: 35px;
-        line-height: 45px;
+        font-size: 26px;
+        line-height: 36px;
+    }
+
+    .service-details__img-box-content-title {
+        font-size: 22px;
+        line-height: 30px; 
+    }
+    .service-details h4 { 
+        font-size: 19px;
     }
 
     .service-details__services-box {
@@ -2148,10 +2214,14 @@
         width: 100%;
         line-height: 50px;
     }
+    .main-slider__text
+    {
+        width: 100%;
+    }
 
     .main-slider__title {
-        font-size: 50px;
-        line-height: 60px;
+        font-size: 40px;
+        line-height: 50px;
     }
 
     .main-slider__img {
@@ -2465,6 +2535,7 @@
 
     .main-slider__img {
         right: 110px;
+        top: 0;
     }
 
     .main-slider .owl-theme .owl-nav {
