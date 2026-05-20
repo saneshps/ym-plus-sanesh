@@ -1068,7 +1068,9 @@
                                         <div class="col-xl-6 col-lg-6 col-md-12">
                                             <div class="contact-one__input-box">
                                                 <input type="text" id="expert_company" name="company"
-                                                    placeholder="Company Name" required="">
+                                                    placeholder="Company Name" required minlength="2"
+                                                    maxlength="100" autocomplete="organization"
+                                                    title="Enter a valid company name (2–100 characters, at least one letter)">
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-lg-6 col-md-12">
@@ -1091,7 +1093,7 @@
                                         </div>
                                         <div class="col-xl-6 col-lg-6 col-md-12">
                                             <div class="contact-one__input-box">
-                                                <input type="text" name="website" placeholder="Website">
+                                                <input type="url" name="website" placeholder="Website">
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-lg-6 col-md-12">
@@ -1113,9 +1115,21 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12">
-                                            <div class="contact-one__input-box">
-                                                <input type="text" id="expert_phone" name="Phone"
-                                                    placeholder="Mobile Number" required="">
+                                            <div class="contact-one__input-box contact-one__phone-group">
+                                                <div class="contact-one__phone-wrap">
+                                                    <select id="expert_phone_code" name="phone_country_code"
+                                                        class="expert-phone-code" required
+                                                        aria-label="Country code">
+                                                        <option value="+971" selected>+971</option> 
+                                                    </select>
+                                                    <input type="tel" id="expert_phone" name="Phone"
+                                                        class="expert-phone-number"
+                                                        placeholder="Mobile Number" required
+                                                        inputmode="numeric" pattern="[0-9]{10}"
+                                                        minlength="10" maxlength="10" autocomplete="tel-national"
+                                                        title="Numbers only — 10 digits (UAE)">
+                                                </div>
+                                                <input type="hidden" id="expert_phone_full" name="phone_full">
                                             </div>
                                         </div>
                                         <div class="col-xl-12 col-lg-12 col-md-12">
@@ -1218,6 +1232,49 @@
 
                             <script>
                                 $(document).ready(function () {
+                                    $('#expert_company').on('input', function () {
+                                        if (isValidCompanyName(this.value)) {
+                                            setFieldBorder(this, false);
+                                        }
+                                    });
+
+                                    function getPhoneMaxLength(code) {
+                                        return code === '+971' ? 10 : 15;
+                                    }
+
+                                    function updatePhoneFieldRules() {
+                                        var code = $('#expert_phone_code').val();
+                                        var maxLen = getPhoneMaxLength(code);
+                                        var $phone = $('#expert_phone');
+                                        $phone.attr('maxlength', maxLen);
+                                        $phone.attr('minlength', code === '+971' ? 10 : 8);
+                                        $phone.attr('placeholder', code === '+971' ? 'Mobile number' : 'Mobile number');
+                                        $phone.val($phone.val().replace(/\D/g, '').slice(0, maxLen));
+                                    }
+
+                                    function setPhoneGroupBorder(hasError) {
+                                        var codeEl = document.getElementById('expert_phone_code');
+                                        var phoneEl = document.getElementById('expert_phone');
+                                        var border = hasError ? '1px solid red' : '';
+                                        if (codeEl) codeEl.style.border = border;
+                                        if (phoneEl) phoneEl.style.border = border;
+                                    }
+
+                                    $('#expert_phone_code').on('change', function () {
+                                        updatePhoneFieldRules();
+                                        setPhoneGroupBorder(false);
+                                    });
+
+                                    $('#expert_phone').on('input', function () {
+                                        var maxLen = getPhoneMaxLength($('#expert_phone_code').val());
+                                        this.value = this.value.replace(/\D/g, '').slice(0, maxLen);
+                                        if (isValidPhone(this.value, $('#expert_phone_code').val())) {
+                                            setPhoneGroupBorder(false);
+                                        }
+                                    });
+
+                                    updatePhoneFieldRules();
+
                                     // Handle service type dropdown to show rest of the fields
                                     $('#expert_service_type').on('change selectmenuchange', function () {
                                         let selectedVal = $(this).val();
@@ -1235,9 +1292,39 @@
                                         }
                                     });
 
+                                    function isValidCompanyName(value) {
+                                        var trimmed = (value || '').trim();
+                                        if (trimmed.length < 2 || trimmed.length > 100) return false;
+                                        if (!/[A-Za-z]/.test(trimmed)) return false;
+                                        return /^[A-Za-z0-9&.\-'() ]+$/i.test(trimmed);
+                                    }
+
+                                    function isValidPhone(value, countryCode) {
+                                        var digits = (value || '').replace(/\D/g, '');
+                                        if (countryCode === '+971') {
+                                            return /^[0-9]{10}$/.test(digits);
+                                        }
+                                        return /^[0-9]{8,15}$/.test(digits);
+                                    }
+
+                                    function buildFullPhone(countryCode, localNumber) {
+                                        return (countryCode || '') + (localNumber || '').replace(/\D/g, '');
+                                    }
+
+                                    function setFieldBorder(el, hasError) {
+                                        var niceSelect = el.tagName === 'SELECT' ? el.nextElementSibling : null;
+                                        var border = hasError ? '1px solid red' : '';
+                                        if (niceSelect && niceSelect.classList.contains('nice-select')) {
+                                            niceSelect.style.border = border;
+                                        } else {
+                                            el.style.border = border;
+                                        }
+                                    }
+
                                     document.getElementById('next-step-btn').addEventListener('click', function () {
                                         // Simple validation for step 1
                                         let valid = true;
+                                        let errorMsg = 'Please fill out all required fields in this step.';
 
                                         // Check if service type is selected first
                                         let serviceSelect = document.getElementById('expert_service_type');
@@ -1261,20 +1348,39 @@
 
                                         ['expert_company', 'expert_location', 'expert_name', 'expert_position', 'expert_email', 'expert_phone'].forEach(function (id) {
                                             let el = document.getElementById(id);
-                                            let niceSelect = el.tagName === 'SELECT' ? el.nextElementSibling : null;
+                                            var value = el.tagName === 'INPUT' || el.tagName === 'TEXTAREA'
+                                                ? el.value.trim() : el.value;
+                                            var fieldInvalid = !value;
 
-                                            if (!el.value) {
-                                                if (niceSelect && niceSelect.classList.contains('nice-select')) {
-                                                    niceSelect.style.border = '1px solid red';
+                                            if (id === 'expert_company' && value && !isValidCompanyName(value)) {
+                                                fieldInvalid = true;
+                                                errorMsg = 'Please enter a valid company name (2–100 characters, at least one letter).';
+                                            }
+                                            if (id === 'expert_phone') {
+                                                var countryCode = document.getElementById('expert_phone_code').value;
+                                                if (value && !isValidPhone(value, countryCode)) {
+                                                    fieldInvalid = true;
+                                                    errorMsg = countryCode === '+971'
+                                                        ? 'UAE mobile: numbers only, exactly 10 digits (e.g. 05XXXXXXXX).'
+                                                        : 'Mobile number: numbers only, 8–15 digits.';
+                                                } else if (!fieldInvalid && value) {
+                                                    document.getElementById('expert_phone_full').value =
+                                                        buildFullPhone(countryCode, value);
+                                                }
+                                            }
+
+                                            if (fieldInvalid) {
+                                                if (id === 'expert_phone') {
+                                                    setPhoneGroupBorder(true);
                                                 } else {
-                                                    el.style.border = '1px solid red';
+                                                    setFieldBorder(el, true);
                                                 }
                                                 valid = false;
                                             } else {
-                                                if (niceSelect && niceSelect.classList.contains('nice-select')) {
-                                                    niceSelect.style.border = '';
+                                                if (id === 'expert_phone') {
+                                                    setPhoneGroupBorder(false);
                                                 } else {
-                                                    el.style.border = '';
+                                                    setFieldBorder(el, false);
                                                 }
                                             }
                                         });
@@ -1283,7 +1389,7 @@
                                             document.getElementById('form-step-1').style.display = 'none';
                                             document.getElementById('form-step-2').style.display = 'block';
                                         } else {
-                                            alert('Please fill out all required fields in this step.');
+                                            alert(errorMsg);
                                         }
                                     });
 
@@ -1343,6 +1449,9 @@
                                         document.getElementById('bookExpertForm').reset();
 
                                         // Reset borders
+                                        setPhoneGroupBorder(false);
+                                        document.getElementById('expert_phone_full').value = '';
+                                        updatePhoneFieldRules();
                                         ['expert_company', 'expert_location', 'expert_name', 'expert_position', 'expert_email', 'expert_phone', 'expert_machine'].forEach(function (id) {
                                             let el = document.getElementById(id);
                                             if (el) {

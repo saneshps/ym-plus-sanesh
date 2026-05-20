@@ -81,6 +81,22 @@
 }
 
 .contact-one__input-box input[type="text"],
+.contact-one__input-box input[type="tel"],
+.contact-one__input-box input[type="number"],
+.contact-one__input-box input[type="date"],
+.contact-one__input-box input[type="time"],
+.contact-one__input-box input[type="datetime-local"],
+.contact-one__input-box input[type="month"],
+.contact-one__input-box input[type="week"],
+.contact-one__input-box input[type="url"],
+.contact-one__input-box input[type="search"],
+.contact-one__input-box input[type="color"],
+.contact-one__input-box input[type="file"],
+.contact-one__input-box input[type="range"],
+.contact-one__input-box input[type="password"],
+.contact-one__input-box input[type="datetime"],
+.contact-one__input-box input[type="datetime-local"],
+.contact-one__input-box input[type="datetime-local"],
 .contact-one__input-box input[type="email"] {
     height: 50px;
     width: 100%;
@@ -98,6 +114,41 @@
 
 .contact-one__input-box .select-box {
     width: 100%;
+}
+
+.contact-one__phone-group .contact-one__phone-wrap {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+    width: 100%;
+}
+
+.contact-one__phone-group .expert-phone-code {
+    flex: 0 0 108px;
+    width: 108px;
+    min-width: 108px;
+    height: 50px;
+    background-color: #9dc33b;
+    border: none !important;
+    border-radius: 10px;
+    padding: 0 14px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: sans-serif;
+    color: var(--erepair-white);
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23ffffff' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 32px;
+}
+
+.contact-one__phone-group .expert-phone-number {
+    flex: 1;
+    min-width: 0;
+    width: auto;
 }
 
 .contact-one__input-box textarea {
