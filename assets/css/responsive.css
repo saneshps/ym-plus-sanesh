@@ -51,6 +51,10 @@
         margin-bottom: 10px;
         margin-top: 8px; 
     }
+    .section-title__title { 
+        font-size: 36px;
+        line-height: 45px; 
+    }
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1319px) {
