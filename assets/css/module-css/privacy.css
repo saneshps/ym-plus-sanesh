@@ -20,6 +20,22 @@
     box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.3);
     transition: all 500ms ease;
 }
+.privacy-policy-page__inner ul li 
+{
+    line-height: 32px;
+    color: #fff;
+    list-style: none;
+    padding-left: 10px;
+    position: relative;
+}
+.privacy-policy-page__inner ul li i
+{
+    color: #9DC33B;
+    position: absolute;
+    margin-top: 6px;
+    left: -20px;
+    font-size: 18px;
+}
 
 .privacy-policy-page__inner:hover {
     border-color: rgba(157, 195, 59, 0.3);
@@ -71,6 +87,15 @@
     margin-bottom: 18px;
     position: relative;
     padding-left: 20px;
+    transition: all 300ms ease;
+}
+.privacy-policy-page__inner h6 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--erepair-white);
+    margin-top: 20px;
+    margin-bottom: 15px;
+    position: relative;
     transition: all 300ms ease;
 }
 
