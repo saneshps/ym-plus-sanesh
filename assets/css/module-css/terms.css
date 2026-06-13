@@ -21,6 +21,28 @@
     transition: all 500ms ease;
 }
 
+.terms-and-conditions-page__inner ul
+{
+    margin-left: 25px;
+    margin-bottom: 25px;
+}
+.terms-and-conditions-page__inner ul li 
+{
+    line-height: 32px;
+    color: #fff;
+    list-style: none;
+    padding-left: 10px;
+    position: relative;
+}
+.terms-and-conditions-page__inner ul li i
+{
+    color: #9DC33B;
+    position: absolute;
+    margin-top: 6px;
+    left: -20px;
+    font-size: 18px;
+}
+
 .terms-and-conditions-page__inner:hover {
     border-color: rgba(157, 195, 59, 0.3);
     box-shadow: 0px 15px 50px rgba(157, 195, 59, 0.1);
